@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qycxv5ib44ke"
-path="res://.godot/imported/Terrain (16x16).png-24e4971e97cc417566882d4f2d3fe45b.ctex"
+uid="uid://bkqejrp6b3c8s"
+path="res://.godot/imported/Bananas.png-b107cbd9c14928a6c1fb94263ad31b07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Terrain/Terrain (16x16).png"
-dest_files=["res://.godot/imported/Terrain (16x16).png-24e4971e97cc417566882d4f2d3fe45b.ctex"]
+source_file="res://assets/Items/Fruits/Bananas.png"
+dest_files=["res://.godot/imported/Bananas.png-b107cbd9c14928a6c1fb94263ad31b07.ctex"]
 
 [params]
 

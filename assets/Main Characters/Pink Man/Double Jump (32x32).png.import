@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdnvugfv7wg1"
-path="res://.godot/imported/Double Jump (32x32).png-bf2d3d8b745c2745a1d762717b5e8bdf.ctex"
+uid="uid://cmxtmitshaqj7"
+path="res://.godot/imported/Double Jump (32x32).png-5dd9a1fe9a6c8cccb7bc5fdd7fe53a41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Main Characters/Virtual Guy/Double Jump (32x32).png"
-dest_files=["res://.godot/imported/Double Jump (32x32).png-bf2d3d8b745c2745a1d762717b5e8bdf.ctex"]
+source_file="res://assets/Main Characters/Pink Man/Double Jump (32x32).png"
+dest_files=["res://.godot/imported/Double Jump (32x32).png-5dd9a1fe9a6c8cccb7bc5fdd7fe53a41.ctex"]
 
 [params]
 

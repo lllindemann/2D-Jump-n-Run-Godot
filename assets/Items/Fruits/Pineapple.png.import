@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://svpxu86a2fth"
-path="res://.godot/imported/Wall Jump (32x32).png-4b3a7c85ca4e6edb2bd5ff5f1293ad22.ctex"
+uid="uid://cyiqxx8ft2wnn"
+path="res://.godot/imported/Pineapple.png-2736482a42f8a0ab08fe6adf8ef630b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Main Characters/Virtual Guy/Wall Jump (32x32).png"
-dest_files=["res://.godot/imported/Wall Jump (32x32).png-4b3a7c85ca4e6edb2bd5ff5f1293ad22.ctex"]
+source_file="res://assets/Items/Fruits/Pineapple.png"
+dest_files=["res://.godot/imported/Pineapple.png-2736482a42f8a0ab08fe6adf8ef630b0.ctex"]
 
 [params]
 

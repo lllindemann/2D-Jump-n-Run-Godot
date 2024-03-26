@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt5gn3gh6io56"
-path="res://.godot/imported/Wall Jump (32x32).png-a7ef9ce1a2de73ce5b64e77d08a17719.ctex"
+uid="uid://bu6nkg3dv42b"
+path="res://.godot/imported/Run (32x32).png-537891b0fa867e757fe464a2a0905d4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Main Characters/Pink Man/Wall Jump (32x32).png"
-dest_files=["res://.godot/imported/Wall Jump (32x32).png-a7ef9ce1a2de73ce5b64e77d08a17719.ctex"]
+source_file="res://assets/Main Characters/Virtual Guy/Run (32x32).png"
+dest_files=["res://.godot/imported/Run (32x32).png-537891b0fa867e757fe464a2a0905d4b.ctex"]
 
 [params]
 

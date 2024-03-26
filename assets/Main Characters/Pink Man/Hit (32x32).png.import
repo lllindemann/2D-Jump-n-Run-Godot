@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5ux616r6p5co"
-path="res://.godot/imported/Apple.png-9ec87081e29a48c86f1989743f755a49.ctex"
+uid="uid://dab0ulywd6avu"
+path="res://.godot/imported/Hit (32x32).png-50e64824b200465763dae65db305361d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Fruits/Apple.png"
-dest_files=["res://.godot/imported/Apple.png-9ec87081e29a48c86f1989743f755a49.ctex"]
+source_file="res://assets/Main Characters/Pink Man/Hit (32x32).png"
+dest_files=["res://.godot/imported/Hit (32x32).png-50e64824b200465763dae65db305361d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dab0ulywd6avu"
-path="res://.godot/imported/Hit (32x32).png-ef4c6a708a29091dec9a53bea125ba76.ctex"
+uid="uid://cfkjxriw73eff"
+path="res://.godot/imported/Jump (32x32).png-6553661eb305ed4ca6a027bd2c626547.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Main Characters/Pink Man/Hit (32x32).png"
-dest_files=["res://.godot/imported/Hit (32x32).png-ef4c6a708a29091dec9a53bea125ba76.ctex"]
+source_file="res://assets/Main Characters/Virtual Guy/Jump (32x32).png"
+dest_files=["res://.godot/imported/Jump (32x32).png-6553661eb305ed4ca6a027bd2c626547.ctex"]
 
 [params]
 
