@@ -26,8 +26,14 @@ func _process(_delta):
 
 # physics processing - actions processed on every frame
 func _physics_process(delta):
-	# TODO
-	pass
+	
+	# gravity and fall behaviour
+	velocity.y += GRAVITY * delta
+	velocity.x = lerp(velocity.x, 0.0, FRICTION * delta) 
+
+	# main movement process
+	get_input()
+	move_and_slide()
 
 
 ### ANIMATION ###
@@ -49,4 +55,25 @@ func process_anim():
 		_sprite2d.play("run", velocity.x / MAX_SPEED)
 	else:
 		_sprite2d.play("idle", 1)
+		
+### Input Logic ###
+func get_input():
+	var cur_speed = abs(velocity.x)
+	
+	# RUN right
+	if Input.is_action_pressed("ui_right") and cur_speed < MAX_SPEED:
+		velocity.x += SPEED
+	
+	# RUN Left
+	if Input.is_action_pressed("ui_left") and cur_speed < MAX_SPEED:
+		velocity.x -= SPEED
+	
+	# JUMP
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_on_floor():
+			jump()
+
+func jump():
+	velocity.y = -JUMP_SPEED
+
 
