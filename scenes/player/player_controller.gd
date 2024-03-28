@@ -29,6 +29,9 @@ func _process(_delta):
 
 # physics processing - actions processed on every frame
 func _physics_process(delta):
+	if position.y > 700:
+		respawn()
+		
 	# reset just_double_jumped flag
 	just_double_jumped = false
 
@@ -43,7 +46,6 @@ func _physics_process(delta):
 	# main movement process
 	get_input()
 	move_and_slide()
-
 
 ### ANIMATION ###
 func setup_anim():
@@ -64,11 +66,7 @@ func process_anim():
 		_sprite2d.play("run", velocity.x / MAX_SPEED)
 	else:
 		_sprite2d.play("idle", 1)
-
-
-
-
-		
+	 
 ### Input Logic ###
 func get_input():
 	var cur_speed = abs(velocity.x)
@@ -90,8 +88,15 @@ func get_input():
 			can_double_jump = false
 			just_double_jumped = true
 
-
 func jump():
 	velocity.y = -JUMP_SPEED
+	
+
+### GAME LOGIC ###
+func respawn():
+	position = spawn_pos
+	velocity.x = 0
+	velocity.y = 0
+	
 
 
