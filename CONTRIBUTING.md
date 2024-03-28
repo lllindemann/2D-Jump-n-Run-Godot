@@ -121,7 +121,7 @@ Available issue reference formats:
 
 - A local issue (`#123`).
 - A cross-project issue (`group/project#123`).
-- The full URL of an issue (`https://gitlab.example.com/group/project/issues/123`).
+- The full URL of an issue (`https://github.example.com/group/project/issues/123`).
 
 e.g.
 
@@ -146,57 +146,3 @@ For major changes, please open an issue first to discuss what you would like to 
 -   Only when a new Version Release is ready it is merged into Master
 -   If an issue in Master is detected a Hotfix branch is created from Master 
 -   When the Hotfix is complete it is merged to both Dev and Master
-
-## Documentation & Comments
-
-**HTML Comments**
-
-Sections:
-
-```
-<!-- START [section name]  -->
-
-...
-
-<!-- END [section name] -->
-```
-
-
-ToDos:
-
-```
-<!-- TODO: [description]  -->
-```
-
-**TS Comments**
-
-Sections & Classes:
-
-```ts
-  /*******************************************
- * [section_name]
- * [description of the section]
- *******************************************/
-```
-
-```ts
-  /*******************************************
- * CLASS [class_name]
- * [description of the class]
- *******************************************/
-```
-
-Functions:
-
-```ts
-  /**
-  * GET/SET when Getter or Setter Method
-  * [Description of the functionality]
-  *
-  * @param [parameter name and description]
-  * @returns [return values]
-  */
-```
-
-## Style Guide
-Please use the defined color palette for styling (see [tailwind.config.js](tailwind.config.js))
