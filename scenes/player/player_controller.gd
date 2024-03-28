@@ -13,6 +13,9 @@ var GRAVITY : int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # default values for jump and spawn behaviour
 var spawn_pos : Vector2 = Vector2.ZERO
+var can_double_jump : bool = true
+var just_double_jumped : bool = false
+
 
 ### Life-Cycle Functionality ###
 # called when main player has been added to the scene
@@ -26,10 +29,16 @@ func _process(_delta):
 
 # physics processing - actions processed on every frame
 func _physics_process(delta):
-	
+	# reset just_double_jumped flag
+	just_double_jumped = false
+
 	# gravity and fall behaviour
 	velocity.y += GRAVITY * delta
 	velocity.x = lerp(velocity.x, 0.0, FRICTION * delta) 
+	
+	# reset double jump on floor
+	if is_on_floor() and velocity.y >= 0:
+		can_double_jump = true
 
 	# main movement process
 	get_input()
@@ -55,6 +64,10 @@ func process_anim():
 		_sprite2d.play("run", velocity.x / MAX_SPEED)
 	else:
 		_sprite2d.play("idle", 1)
+
+
+
+
 		
 ### Input Logic ###
 func get_input():
@@ -72,6 +85,11 @@ func get_input():
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():
 			jump()
+		elif can_double_jump:
+			jump()
+			can_double_jump = false
+			just_double_jumped = true
+
 
 func jump():
 	velocity.y = -JUMP_SPEED
