@@ -66,7 +66,8 @@ func process_anim():
 		_sprite2d.play("run", velocity.x / MAX_SPEED)
 	else:
 		_sprite2d.play("idle", 1)
-	 
+		
+		
 ### Input Logic ###
 func get_input():
 	var cur_speed = abs(velocity.x)
