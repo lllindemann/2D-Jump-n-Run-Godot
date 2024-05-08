@@ -6,6 +6,7 @@ signal game_over
 @export_range(0, 1000, 1) var SPEED : int = 50
 @export_range(0, 1000, 1) var MAX_SPEED : int = 150
 @export_range(0, 1000, 1) var JUMP_SPEED : int = 400
+@export_range(0, 1000, 1) var DASH_SPEED : int = 900
 @export_range(0, 20, 0.01) var FRICTION : float = 10
 
 var GRAVITY : int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -16,6 +17,7 @@ var spawn_pos : Vector2 = Vector2.ZERO
 var can_double_jump : bool = true
 var just_double_jumped : bool = false
 var just_wall_jumped : bool = false
+var just_dashed : bool = false
 
 
 ### Life-Cycle Functionality ###
@@ -36,6 +38,7 @@ func _physics_process(delta):
 	# reset just_double_jumped & just_wall_jumped flag
 	just_double_jumped = false
 	just_wall_jumped = false
+	just_dashed = false
 
 	# gravity and fall behaviour
 	velocity.y += GRAVITY * delta
@@ -58,10 +61,15 @@ func setup_anim():
 func process_anim():
 	if abs(velocity.x) >= 20:
 		_sprite2d.flip_h = true if velocity.x < 0 else false
+		
+	if _sprite2d.animation == "double" and _sprite2d.frame != 5:
+		return
+	if _sprite2d.animation == "wall" and _sprite2d.frame != 4:
+		return
+	if _sprite2d.animation == "dash" and _sprite2d.frame != 4:
+		return
 	
 	if not is_on_floor():
-		if _sprite2d.animation == "double" and _sprite2d.frame != 5:
-			return
 		if just_double_jumped:
 			_sprite2d.play("double", 3)
 		if just_wall_jumped:
@@ -72,6 +80,8 @@ func process_anim():
 			_sprite2d.play("fall", 1)
 	elif abs(velocity.x) >= 20:
 		_sprite2d.play("run", velocity.x / MAX_SPEED)
+		if just_dashed:
+			_sprite2d.play("dash", 3)
 	else:
 		_sprite2d.play("idle", 1)
 		
@@ -83,21 +93,18 @@ func get_input():
 	# RUN right
 	if Input.is_action_pressed("ui_right") and cur_speed < MAX_SPEED:
 		velocity.x += SPEED
-	
-	if is_on_wall() and Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
-		velocity.y = -JUMP_SPEED
-		velocity.x = 1000
-		just_wall_jumped = true
-		
-	if is_on_wall() and Input.is_action_pressed("ui_up"):
-		velocity.y = -JUMP_SPEED * 0.8
-		velocity.x = -1000
-		just_wall_jumped = true
-		
+		# DASH right
+		if Input.is_action_pressed("ui_down"):
+			velocity.x += DASH_SPEED
+			just_dashed = true		
 	# RUN Left
 	if Input.is_action_pressed("ui_left") and cur_speed < MAX_SPEED:
 		velocity.x -= SPEED
-	
+		# DASH Left
+		if Input.is_action_pressed("ui_down"):
+			velocity.x -= DASH_SPEED
+			just_dashed = true
+		
 	# JUMP
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():
@@ -106,13 +113,20 @@ func get_input():
 			jump()
 			can_double_jump = false
 			just_double_jumped = true
-
+			
+	if is_on_wall() and Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+		velocity.y = -JUMP_SPEED * 0.8
+		velocity.x = 1000
+		just_wall_jumped = true
 		
-
+	if is_on_wall() and Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
+		velocity.y = -JUMP_SPEED * 0.8
+		velocity.x = -1000
+		just_wall_jumped = true
+			
 func jump():
 	velocity.y = -JUMP_SPEED
 	
-
 ### GAME LOGIC ###
 func respawn():
 	position = spawn_pos
