@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal game_over
 
 # variables relevant for main player movement
-@export_range(0, 1000, 1) var SPEED : int = 50
+@export_range(0, 1000, 1) var SPEED : int = 100
 @export_range(0, 1000, 1) var MAX_SPEED : int = 150
 @export_range(0, 1000, 1) var JUMP_SPEED : int = 400
 @export_range(0, 1000, 1) var DASH_SPEED : int = 900
@@ -79,7 +79,7 @@ func process_anim():
 		else:
 			_sprite2d.play("fall", 1)
 	elif abs(velocity.x) >= 20:
-		_sprite2d.play("run", velocity.x / MAX_SPEED)
+		_sprite2d.play("run", velocity.x / MAX_SPEED * 1.2)
 		if just_dashed:
 			_sprite2d.play("dash", 3)
 	else:
