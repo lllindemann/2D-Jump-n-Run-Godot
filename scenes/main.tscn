@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c86w4vfc47ki"]
+[gd_scene load_steps=11 format=3 uid="uid://c86w4vfc47ki"]
 
+[ext_resource type="Texture2D" uid="uid://cmltdc1d67eif" path="res://assets/Background/plx-1.png" id="1_bjiux"]
 [ext_resource type="PackedScene" uid="uid://cje3hydu6ie5" path="res://scenes/player/player.tscn" id="1_mfict"]
 [ext_resource type="Texture2D" uid="uid://qycxv5ib44ke" path="res://assets/Terrain/Terrain (16x16).png" id="2_cvhob"]
+[ext_resource type="Texture2D" uid="uid://bgtjgyrooicoy" path="res://assets/Background/plx-2.png" id="2_tireb"]
 [ext_resource type="PackedScene" uid="uid://cckrjiyjqo8xo" path="res://scenes/fruit/fruit.tscn" id="3_6ijk4"]
+[ext_resource type="Texture2D" uid="uid://crhimab6r6sdu" path="res://assets/Background/plx-3.png" id="3_v33jn"]
+[ext_resource type="Texture2D" uid="uid://cabr1gyx2qb7r" path="res://assets/Background/plx-4.png" id="4_0jwgl"]
+[ext_resource type="Texture2D" uid="uid://8mlb1g6bh7t6" path="res://assets/Background/plx-5.png" id="5_5x1c5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7y8pw"]
 texture = ExtResource("2_cvhob")
@@ -589,6 +594,64 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_7y8pw")
 
 [node name="Main" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-9, -23)
+scale = Vector2(3, 3)
+texture = ExtResource("1_bjiux")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_tireb")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(3, 3)
+texture = ExtResource("3_v33jn")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(3, 3)
+texture = ExtResource("4_0jwgl")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(3, 3)
+texture = ExtResource("5_5x1c5")
+centered = false
 
 [node name="player" parent="." instance=ExtResource("1_mfict")]
 position = Vector2(576, 325)
