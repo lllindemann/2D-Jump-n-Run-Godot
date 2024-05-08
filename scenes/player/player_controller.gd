@@ -15,6 +15,7 @@ var GRAVITY : int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var spawn_pos : Vector2 = Vector2.ZERO
 var can_double_jump : bool = true
 var just_double_jumped : bool = false
+var just_wall_jumped : bool = false
 
 
 ### Life-Cycle Functionality ###
@@ -32,8 +33,9 @@ func _physics_process(delta):
 	if position.y > 700:
 		respawn()
 		
-	# reset just_double_jumped flag
+	# reset just_double_jumped & just_wall_jumped flag
 	just_double_jumped = false
+	just_wall_jumped = false
 
 	# gravity and fall behaviour
 	velocity.y += GRAVITY * delta
@@ -62,6 +64,8 @@ func process_anim():
 			return
 		if just_double_jumped:
 			_sprite2d.play("double", 3)
+		if just_wall_jumped:
+			_sprite2d.play("wall", 3)
 		elif velocity.y < 0:
 			_sprite2d.play("jump", 1)
 		else:
@@ -80,6 +84,16 @@ func get_input():
 	if Input.is_action_pressed("ui_right") and cur_speed < MAX_SPEED:
 		velocity.x += SPEED
 	
+	if is_on_wall() and Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+		velocity.y = -JUMP_SPEED
+		velocity.x = 1000
+		just_wall_jumped = true
+		
+	if is_on_wall() and Input.is_action_pressed("ui_up"):
+		velocity.y = -JUMP_SPEED * 0.8
+		velocity.x = -1000
+		just_wall_jumped = true
+		
 	# RUN Left
 	if Input.is_action_pressed("ui_left") and cur_speed < MAX_SPEED:
 		velocity.x -= SPEED
@@ -92,6 +106,8 @@ func get_input():
 			jump()
 			can_double_jump = false
 			just_double_jumped = true
+
+		
 
 func jump():
 	velocity.y = -JUMP_SPEED
