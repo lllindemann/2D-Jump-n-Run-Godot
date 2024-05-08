@@ -58,7 +58,11 @@ func process_anim():
 		_sprite2d.flip_h = true if velocity.x < 0 else false
 	
 	if not is_on_floor():
-		if velocity.y < 0:
+		if _sprite2d.animation == "double" and _sprite2d.frame != 5:
+			return
+		if just_double_jumped:
+			_sprite2d.play("double", 3)
+		elif velocity.y < 0:
 			_sprite2d.play("jump", 1)
 		else:
 			_sprite2d.play("fall", 1)
@@ -97,7 +101,4 @@ func jump():
 func respawn():
 	position = spawn_pos
 	velocity.x = 0
-	velocity.y = 0
-	
-
-
+	velocity.y = 0 
