@@ -96,7 +96,7 @@ feat(api)!: support for Node 6
 1. Other devs (in any case the assigned reviewer) should review code and leave notes
 2. Code owner is responsible for making any necessary fixes any pushing them up
 3. Other devs should give the code the thumbs up (at least one other dev)
-    - Literally leave a comment with an emoji thumbs up 👍
+	- Literally leave a comment with an emoji thumbs up 👍
 
 #### Merging Code
 
