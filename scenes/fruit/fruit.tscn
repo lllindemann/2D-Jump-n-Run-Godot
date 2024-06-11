@@ -17,7 +17,7 @@ sprites = Array[SpriteFrames]([ExtResource("2_nfdp6"), ExtResource("3_3jhf2"), E
 shape = SubResource("CapsuleShape2D_cvx2d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("3_3jhf2")
+sprite_frames = ExtResource("6_4laa3")
 autoplay = "default"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

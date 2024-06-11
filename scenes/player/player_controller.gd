@@ -62,18 +62,18 @@ func process_anim():
 	if abs(velocity.x) >= 20:
 		_sprite2d.flip_h = true if velocity.x < 0 else false
 		
-	if _sprite2d.animation == "double" and _sprite2d.frame != 5:
+	if _sprite2d.animation == "double" and _sprite2d.is_playing():
 		return
-	if _sprite2d.animation == "wall" and _sprite2d.frame != 4:
+	if _sprite2d.animation == "wall" and _sprite2d.is_playing():
 		return
-	if _sprite2d.animation == "dash" and _sprite2d.frame != 4:
+	if _sprite2d.animation == "dash" and  _sprite2d.is_playing():
 		return
 	
 	if not is_on_floor():
 		if just_double_jumped:
-			_sprite2d.play("double", 3)
-		if just_wall_jumped:
-			_sprite2d.play("wall", 3)
+			_sprite2d.play("double", 4)
+		elif just_wall_jumped:
+			_sprite2d.play("wall", 4)
 		elif velocity.y < 0:
 			_sprite2d.play("jump", 1)
 		else:

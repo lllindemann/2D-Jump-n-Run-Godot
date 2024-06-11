@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="2d-jump-n-run-godot"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
